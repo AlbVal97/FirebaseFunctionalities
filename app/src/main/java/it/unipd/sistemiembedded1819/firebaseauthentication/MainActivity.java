@@ -19,20 +19,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final int SIGN_IN_INTENT_CODE = 123;
-    private Button signInBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        signInBtn = findViewById(R.id.signInBtn);
-        signInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createSignInIntent();
-            }
-        });
     }
 
     public void createSignInIntent() {
@@ -64,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 //Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 Toast.makeText(this, user + " successfully signed in!", Toast.LENGTH_SHORT).show();
+
+                //Launch database activity to let the user access its data
+                Intent intent = new Intent(this, UserDatabase.class);
+                intent.putExtra("username", user.getDisplayName());
+                intent.putExtra("userEmail", user.getEmail());
+                startActivity(intent);
             }
             else {
                 //If response is null, the user canceled the sign-in flow pressing the back button
@@ -76,5 +73,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void launchDatabaseActivity(View view) {
+        createSignInIntent();
     }
 }
