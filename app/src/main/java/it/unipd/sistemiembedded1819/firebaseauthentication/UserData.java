@@ -9,14 +9,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserDatabase extends AppCompatActivity {
+public class UserData extends AppCompatActivity {
 
     private TextView mUserNameTextview;
     private TextView mUserEmailTextview;
@@ -24,10 +23,10 @@ public class UserDatabase extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_database);
+        setContentView(R.layout.activity_user_data);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
+        String username = intent.getStringExtra("userNameSurname");
         String userEmail = intent.getStringExtra("userEmail");
 
         mUserNameTextview = findViewById(R.id.user_name_textview);
@@ -49,7 +48,7 @@ public class UserDatabase extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(
-                                UserDatabase.this,
+                                UserData.this,
                                 "User added to the database with the ID: " + documentReference.getId(),
                                 Toast.LENGTH_SHORT)
                                 .show();
@@ -59,7 +58,7 @@ public class UserDatabase extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(
-                                UserDatabase.this,
+                                UserData.this,
                                 "An error occurred adding the user to the database!",
                                 Toast.LENGTH_SHORT)
                                 .show();

@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Firebase Authentication</string>
     <string name="sign_in_btn_text">Sign In</string>
+    <string name="add_the_following_data">Add the following data:</string>
+    <string name="nickname_textview_text">Nickname:</string>
+    <string name="insert_a_nickname_hint">Insert a nickname</string>
+    <string name="date_of_birth_textview_text">Date of birth:</string>
+    <string name="height_textview_text">Height:</string>
+    <string name="insert_your_date_of_birth_hint">Insert your date of birth</string>
+    <string name="insert_your_height_in_cm_hint">Insert your height (in cm)</string>
+    <string name="weight_textview_text">Weight:</string>
+    <string name="insert_your_weight_in_kg_hint">Insert your weight (in kg)</string>
 </resources>

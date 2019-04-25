@@ -8,4 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SignInTheme">
+        <item name="android:background">@color/white</item>
+    </style>
 </resources>

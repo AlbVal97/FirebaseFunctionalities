@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setAvailableProviders(signInProviders)
                         .setLogo(R.drawable.running)
+                        .setTheme(R.style.AppTheme)
                         .build(),
                 SIGN_IN_INTENT_CODE);
     }
@@ -57,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, user + " successfully signed in!", Toast.LENGTH_SHORT).show();
 
                 //Launch database activity to let the user access its data
-                Intent intent = new Intent(this, UserDatabase.class);
-                intent.putExtra("username", user.getDisplayName());
+                Intent intent = new Intent(this, UserData.class);
+                intent.putExtra("userNameSurname", user.getDisplayName());
                 intent.putExtra("userEmail", user.getEmail());
                 startActivity(intent);
             }
