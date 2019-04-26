@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void launchDatabaseActivity(View view) {
+    public void launchUserDataActivity(View view) {
         createSignInIntent();
     }
 }
